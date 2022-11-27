@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Menu1 from './Menu1';
+import Menu2 from './Menu2';
+import { api } from "./api";
+import {useWindowSize} from "./Hook";
+import "./geral.css";
 
 function App() {
+  const window = useWindowSize();
+  console.log(window.width)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    {window.width>900?<Menu1/>:<Menu2 api={api} />}
+    <div>
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia fuga natus minus beatae veritatis totam voluptas vero? Obcaecati mollitia quaerat error eaque animi explicabo. Numquam quas error voluptatum harum optio?
     </div>
+    </>
   );
 }
 
